@@ -1,0 +1,24 @@
+all: build/ pcr.egg-info/
+build/:
+	@python3 setup.py build_ext
+pcr.egg-info/:
+	@python3 setup.py egg_info
+
+test:
+	@python3 setup.py test
+	@pep8 .
+
+DESTDIR ?= /
+PREFIX ?= usr/
+install:
+ifneq ($(DEB_HOST_ARCH),)
+	@python3 setup.py install --no-compile --prefix="$(PREFIX)" --root="$(DESTDIR)" --install-layout=deb
+else
+	@python3 setup.py install --no-compile --prefix="$(PREFIX)" --root="$(DESTDIR)"
+endif
+
+clean:
+	@rm -rfv build/ pcr.egg-info/
+	@find -depth -name "__pycache__" -type d -exec rm -rfv {} \;
+
+.PHONY : clean

@@ -1,0 +1,18 @@
+Source: pcr
+Maintainer: Stefano Palazzo <stefano.palazzo@gmail.com>
+Section: python
+Priority: optional
+Build-Depends: python3 (>= 3.3.1),
+               python3-setuptools,
+               pep8,
+               debhelper (>= 9)
+Standards-Version: 3.9.4
+
+Package: python3-pcr
+Architecture: all
+Depends: python3 (>= 3.3.1),
+         python3-setuptools,
+         ${misc:Depends}
+Description: Python Cryptography Toolkit
+ Implemented in pure Python, PCR is essentially
+ a cryptographer's experimentation kit.

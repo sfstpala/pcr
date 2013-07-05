@@ -1,0 +1,9 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Contact: Stefano Palazzo <stefano.palazzo@gmail.com>
+Source: https://github.com/sfstpala/pcr/
+
+Files: *
+Copyright:
+ Copyright (C) 2013 Stefano Palazzo <stefano.palazzo@gmail.com>
+License: GPL-3+
+ /usr/share/common-licenses/GPL-3
