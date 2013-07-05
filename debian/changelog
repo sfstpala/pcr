@@ -1,5 +1,10 @@
-pcr (0.1.0) UNRELEASED; urgency=low
+pcr (0.1.0) raring; urgency=low
 
   * Initial release
+  * Feature: AES
+  * Feature: CBC Mode
+  * Feature: PKCS7
+  * Feature: PBKDF2
+  * Feature: Diffie-Hellman
 
- -- Stefano Palazzo <stefano.palazzo@gmail.com>  Tue, 25 Jun 2013 21:31:12 +0200
+ -- Stefano Palazzo <stefano.palazzo@gmail.com>  Fri, 05 Jul 2013 06:25:33 +0200
