@@ -15,3 +15,5 @@ Currently, PCR provides the following:
 
 Additional modules (especially regarding Public-Key cryptography)
 are in the works.
+
+Note: PCR does not (and will never) work with Python 2.x.
