@@ -20,3 +20,9 @@ and comments (such as the ones in pbkdf2.py) to explain any
 argument. Do provide reasonable defaults.
 
 Furthermore, all code must pass pep8 without exception.
+
+## License
+
+All code in PCR is licensed under the terms of the GNU
+General Public License (version 3 or later). Do not add
+your name at the top of the file.
