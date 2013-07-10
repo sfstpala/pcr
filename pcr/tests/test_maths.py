@@ -15,7 +15,7 @@
 
 import unittest
 
-from pcr.maths import is_prime, get_prime, phi
+from pcr.maths import is_prime, get_prime, phi, mult_inv
 
 
 def is_really_prime(n):
@@ -54,3 +54,10 @@ class MathsTest(unittest.TestCase):
                 if gcd(n, k) == 1:
                     t += 1
         self.assertEqual(t, c, (p, q))
+
+    def test_mult_inv(self):
+        for n in range(4096, 8192):
+            if not is_prime(n):
+                continue
+            m = mult_inv(n, 8192)
+            self.assertEqual(n * mult_inv(n, 8192) % 8192, 1, n)

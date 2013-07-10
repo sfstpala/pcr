@@ -88,3 +88,22 @@ def phi(n, p, q):
     k <= n that are relatively prime to n.
     '''
     return (n + 1) - (p + q)
+
+
+def mult_inv(a, b):
+    '''
+    Calculate the multiplicative inverse a**-1 % b
+
+    This function works for n >= 5 where n is prime.
+    '''
+    # in addition to the normal setup, we also remember b
+    last_b, x, last_x, y, last_y = b, 0, 1, 1, 0
+    while b != 0:
+        q = a // b
+        a, b = b, a % b
+        x, last_x = last_x - q * x, x
+        y, last_y = last_y - q * y, y
+    # and add b to x if x is negative
+    if last_x < 0:
+        return last_x + last_b
+    return last_x
