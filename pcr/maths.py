@@ -18,7 +18,7 @@
 import random
 
 
-def is_prime(n, k=50):
+def is_prime(n, k=64):
     '''
     Test whether n is prime using the probabilistic Miller-Rabin
     primality test. If n is composite, then this test will declare
@@ -30,6 +30,8 @@ def is_prime(n, k=50):
     values in FIPS PUB 186-3:
 
     <http://csrc.nist.gov/publications/fips/fips186-3/fips_186-3.pdf>
+
+    Do not use this function for small numbers.
 
     '''
     def check_candidate(a):
@@ -62,7 +64,12 @@ def is_prime(n, k=50):
 
 
 def get_prime(bits):
-    ''' Return a random prime up to 'bits' in length '''
+    '''
+    Return a random prime up to a certain length
+
+    This function uses random.SystemRandom.
+
+    '''
     def check_size(n, bits):
         return len(bin(n)[2:]) == bits
     system_random = random.SystemRandom()
@@ -73,5 +80,11 @@ def get_prime(bits):
 
 
 def phi(n, p, q):
-    ''' euler's totient function for n which can be written as pq'''
+    '''
+    Euler's totient function for n which can be written as pq
+
+    This is the number of k in the range 0 <= k <= n where
+    gcd(n, k) is = 1 or, in other words, the number of integers
+    k <= n that are relatively prime to n.
+    '''
     return (n + 1) - (p + q)
