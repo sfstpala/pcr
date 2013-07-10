@@ -15,7 +15,7 @@
 
 import unittest
 
-from pcr.maths import is_prime, get_prime, phi, mult_inv
+from pcr.maths import is_prime, get_prime, phi, mult_inv, make_rsa_keys
 
 
 def is_really_prime(n):
@@ -61,3 +61,12 @@ class MathsTest(unittest.TestCase):
                 continue
             m = mult_inv(n, 8192)
             self.assertEqual(n * mult_inv(n, 8192) % 8192, 1, n)
+
+    def test_make_rsa_keys(self):
+        n, e, d = make_rsa_keys(512)
+        self.assertEqual(e, 65537)
+        self.assertNotEqual(n, d)
+        self.assertLess(len(bin(n)[2:]), 513)
+        self.assertGreater(len(bin(n)[2:]), 384)
+        self.assertLess(len(bin(d)[2:]), 513)
+        self.assertGreater(len(bin(d)[2:]), 384)

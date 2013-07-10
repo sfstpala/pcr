@@ -107,3 +107,20 @@ def mult_inv(a, b):
     if last_x < 0:
         return last_x + last_b
     return last_x
+
+
+def make_rsa_keys(bits=2048, e=65537):
+    '''
+    Create RSA key pair
+
+    Returns n, e, d, where (n, e) is the public
+    key and (n, e, d) is the private key.
+
+    '''
+    p, q = None, None
+    while p == q:
+        p, q = get_prime(bits // 2), get_prime(bits // 2)
+    n = p * q
+    phi_n = phi(n, p, q)
+    d = mult_inv(e, phi_n)
+    return n, e, d
