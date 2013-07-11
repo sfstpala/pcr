@@ -15,7 +15,10 @@
 
 ''' Various mathematical function used in public key cryptography '''
 
+import os
 import random
+
+random = random.SystemRandom()
 
 
 def is_prime(n, k=64):
@@ -63,19 +66,18 @@ def is_prime(n, k=64):
     return True
 
 
-def get_prime(bits):
+def get_prime(bits, k=64):
     '''
     Return a random prime up to a certain length
 
     This function uses random.SystemRandom.
 
     '''
-    def check_size(n, bits):
-        return len(bin(n)[2:]) == bits
-    system_random = random.SystemRandom()
+    if bits % 8 != 0 or bits == 0:
+        raise ValueError("bits must be >= 0 and divisible by 8")
     while True:
-        n = system_random.randint(0, 2 ** bits - 1)
-        if check_size(n, bits) and is_prime(n):
+        n = int.from_bytes(os.urandom(bits // 8), "big")
+        if is_prime(n, k):
             return n
 
 
@@ -109,12 +111,14 @@ def mult_inv(a, b):
     return last_x
 
 
-def make_rsa_keys(bits=2048, e=65537):
+def make_rsa_keys(bits=2048, e=65537, k=64):
     '''
     Create RSA key pair
 
     Returns n, e, d, where (n, e) is the public
-    key and (n, e, d) is the private key.
+    key and (n, e, d) is the private key (and k is
+    the number of rounds used in the Miller-Rabin
+    primality test).
 
     '''
     p, q = None, None

@@ -38,8 +38,11 @@ class MathsTest(unittest.TestCase):
             self.assertEqual(is_prime(i), is_really_prime(i), i)
 
     def test_get_prime(self):
+        self.assertRaises(ValueError, get_prime, 0)
+        self.assertRaises(ValueError, get_prime, 1)
+        self.assertRaises(ValueError, get_prime, 4)
         for i in range(32):
-            n = get_prime(14)
+            n = get_prime(16)
             self.assertTrue(is_really_prime(n), n)
 
     def test_phi(self):
