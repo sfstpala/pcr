@@ -15,12 +15,14 @@
 
 ''' RC4 stream cipher '''
 
+
 def key_schedule(key):
     s, j = list(range(256)), 0
     for i in range(256):
         j = (j + s[i] + key[i % len(key)]) % 256
         s[i], s[j] = s[j], s[i]
     return s
+
 
 def key_stream(s):
     i, j = 0, 0
