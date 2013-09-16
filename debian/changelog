@@ -1,3 +1,9 @@
+pcr (0.3.0) raring; urgency=low
+
+  * Feature: RC4
+
+ -- Stefano Palazzo <stefano.palazzo@gmail.com>  Mon, 16 Sep 2013 21:10:21 +0200
+
 pcr (0.2.1) raring; urgency=low
 
   * Bug: Fixed version number reporting
