@@ -12,6 +12,7 @@ Currently, PCR provides the following:
  - PKCS7 Padding
  - PBKDF2 (Key Derivation)
  - Diffie-Hellman Key Exchange (with RFC3526 groups)
+ - RC4 (Stream Cipher)
  - HOTP (e.g. for Google Authenticator)
 
 Additional modules (especially regarding Public-Key cryptography)
