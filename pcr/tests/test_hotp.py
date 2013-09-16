@@ -25,7 +25,7 @@ class HOTPTest(unittest.TestCase):
 
     def test_get_token(self):
         '''
-        HOTP Algorithm: Test Values:
+        HOTP Algorithm Test Values:
             http://tools.ietf.org/html/rfc4226
 
         '''
@@ -45,7 +45,7 @@ class HOTPTest(unittest.TestCase):
         self.assertEqual(get_token(key, 9), "520489")
 
     def test_new_secret(self):
-        # secrets should be unique and 20 base32 characters long
+        # secrets should be unique and 20 characters long (base 32)
         secrets = set(new_secret() for i in range(100))
         self.assertEqual(len(secrets), 100)
         for s in secrets:
