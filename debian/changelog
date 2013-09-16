@@ -1,3 +1,15 @@
+pcr (0.2.1) raring; urgency=low
+
+  * Bug: Fixed version number reporting
+
+ -- Stefano Palazzo <stefano.palazzo@gmail.com>  Mon, 16 Sep 2013 20:26:04 +0200
+
+pcr (0.2.0) raring; urgency=low
+
+  * Feature: Time OTP for 2-factor authentication
+
+ -- Stefano Palazzo <stefano.palazzo@gmail.com>  Mon, 16 Sep 2013 20:23:03 +0200
+
 pcr (0.1.0) raring; urgency=low
 
   * Initial release

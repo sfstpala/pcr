@@ -8,13 +8,11 @@ test:
 	@python3 setup.py test
 	@pep8 .
 
+ifdef DEB_HOST_ARCH
 DESTDIR ?= /
 PREFIX ?= usr/
 install:
-ifneq ($(DEB_HOST_ARCH),)
 	@python3 setup.py install --no-compile --prefix="$(PREFIX)" --root="$(DESTDIR)" --install-layout=deb
-else
-	@python3 setup.py install --no-compile --prefix="$(PREFIX)" --root="$(DESTDIR)"
 endif
 
 clean:
