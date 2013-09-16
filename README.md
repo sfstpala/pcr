@@ -12,6 +12,7 @@ Currently, PCR provides the following:
  - PKCS7 Padding
  - PBKDF2 (Key Derivation)
  - Diffie-Hellman Key Exchange (with RFC3526 groups)
+ - HOTP (e.g. for Google Authenticator)
 
 Additional modules (especially regarding Public-Key cryptography)
 are in the works.
@@ -26,5 +27,5 @@ The easiest way to install PCR is using PIP:
     cd pcr
     sudo pip3 install .
 
-You can also type `make install` or build the Debian package
-by running `debuild -b -tc -us -uc`.
+You can also build the Debian package by
+running `debuild -b -tc -us -uc`.
