@@ -24,12 +24,13 @@ import os
 import time
 
 
-def get_token(secret):
+def get_token(secret, i=None):
     key = base64.b32decode(secret, True)
-    msg = struct.pack(">Q", int(time.time()) // 30)
+    msg = struct.pack(">Q", i if i is not None else (int(time.time()) // 30))
     h = hmac.new(key, msg, hashlib.sha1).digest()
     return str((struct.unpack(">I", h[h[19] & 15:(h[19] & 15) + 4])[0]
-            & 0x7fffffff) % 1000000).rjust(6, "0")
+                & 0x7fffffff) % 1000000).rjust(6, "0")
+
 
 def new_secret():
     return base64.b32encode(os.urandom(10))
