@@ -4,6 +4,9 @@ build/:
 pcr.egg-info/:
 	@python3 setup.py egg_info
 
+dist:
+	@python3 setup.py sdist
+
 test:
 	@python3 setup.py test
 	@pep8 .
@@ -19,4 +22,4 @@ clean:
 	@rm -rfv build/ pcr.egg-info/
 	@find -depth -name "__pycache__" -type d -exec rm -rfv {} \;
 
-.PHONY : clean
+.PHONY : dist test clean

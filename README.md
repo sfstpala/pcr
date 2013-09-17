@@ -24,9 +24,7 @@ Note: PCR does not (and will never) work with Python 2.x.
 
 The easiest way to install PCR is using PIP:
 
-    git clone https://github.com/sfstpala/pcr.git
-    cd pcr
-    sudo pip3 install .
+    sudo pip3 install pcr
 
-You can also build the Debian package by
-running `debuild -b -tc -us -uc`.
+You can also build the Debian package by running
+`debuild -b -tc -us -uc` in the source tree.
