@@ -13,6 +13,8 @@ Architecture: all
 Depends: python3 (>= 3.3.1),
          python3-setuptools,
          ${misc:Depends}
-Description: Python Cryptography Toolkit
- Implemented in pure Python, PCR is essentially
- a cryptographer's experimentation kit.
+Description: Python 3 Cryptography Toolkit
+ A cryptography toolkit implemented in pure python 3. PCR includes
+ AES, CBC (mode of operation), Diffie-Hellman, HOPT (two-factor-
+ authentication), pbkdf2 (key derivation), RC4, and XTEA, as well
+ as some ancillary modules.
