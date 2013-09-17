@@ -19,7 +19,7 @@ install:
 endif
 
 clean:
-	@rm -rfv build/ pcr.egg-info/
+	@rm -rfv dist/ build/ pcr.egg-info/
 	@find -depth -name "__pycache__" -type d -exec rm -rfv {} \;
 
 .PHONY : dist test clean
