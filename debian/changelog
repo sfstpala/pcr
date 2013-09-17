@@ -1,3 +1,9 @@
+pcr (0.4.0) raring; urgency=low
+
+  * Bug: test __version__ variable from pkg_resources
+
+ -- Stefano Palazzo <stefano.palazzo@gmail.com>  Tue, 17 Sep 2013 21:03:36 +0200
+
 pcr (0.3.0) raring; urgency=low
 
   * Feature: RC4
