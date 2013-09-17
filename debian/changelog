@@ -1,3 +1,9 @@
+pcr (0.5.0) raring; urgency=low
+
+  * Bug: Updated descriptions for PyPI upload
+
+ -- Stefano Palazzo <stefano.palazzo@gmail.com>  Tue, 17 Sep 2013 21:48:32 +0200
+
 pcr (0.4.0) raring; urgency=low
 
   * Bug: test __version__ variable from pkg_resources
