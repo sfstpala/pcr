@@ -1,3 +1,9 @@
+pcr (0.7.0) raring; urgency=low
+
+  * Bug: fixed a bad test (mult_inv)
+
+ -- Stefano Palazzo <stefano.palazzo@gmail.com>  Fri, 14 Mar 2014 10:46:02 +0100
+
 pcr (0.6.0) raring; urgency=low
 
   * Bug: fixed package metadata
