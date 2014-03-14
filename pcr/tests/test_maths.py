@@ -63,7 +63,7 @@ class MathsTest(unittest.TestCase):
             if not is_prime(n):
                 continue
             m = mult_inv(n, 8192)
-            self.assertEqual(n * mult_inv(n, 8192) % 8192, 1, n)
+            self.assertEqual(n * mult_inv(n, 8192) % 8192, 1, m)
 
     def test_make_rsa_keys(self):
         n, e, d = make_rsa_keys(512)

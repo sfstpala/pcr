@@ -15,8 +15,6 @@
 
 import unittest
 import base64
-import binascii
-import hashlib
 
 from pcr.hotp import get_token, new_secret
 

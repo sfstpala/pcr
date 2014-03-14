@@ -16,8 +16,6 @@
 ''' Password based key-derivation function - PBKDF2 '''
 
 import hmac
-import hashlib
-import os
 import struct
 
 
