@@ -2,6 +2,7 @@ __pycache__/
 /*.egg-info/
 /*.egg
 /bin/
+/dist/
 /include/
 /lib/
 /lib64

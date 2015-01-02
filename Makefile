@@ -2,10 +2,12 @@ python = python3.4
 
 all: pcr.egg-info
 
-pcr.egg-info: setup.py bin/pip
+pcr.egg-info: setup.py bin/pip bin/wheel
 	bin/pip install --editable . && touch $@
 bin/pip: bin/python
 	curl https://bootstrap.pypa.io/get-pip.py | bin/python
+bin/wheel: bin/pip
+	bin/pip install wheel
 bin/python:
 	$(python) -m venv --without-pip .
 
