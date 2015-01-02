@@ -3,7 +3,8 @@ include CONTRIBUTING.md
 include .coveragerc
 include COPYING
 include Makefile
-include docs/Makefile
+include tox.ini
+include .travis.yml
 recursive-include docs *.py
 recursive-include docs *.rst
 include debian
