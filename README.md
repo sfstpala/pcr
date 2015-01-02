@@ -1,5 +1,8 @@
 # PCR - Python Cryptography Experimentation Kit
 
+[![Build](https://img.shields.io/travis/sfstpala/pcr.svg?style=flat-square)](https://travis-ci.org/sfstpala/pcr)
+[![Coverage](https://img.shields.io/coveralls/sfstpala/pcr.svg?style=flat-square)](https://coveralls.io/r/sfstpala/pcr)
+
 This package provides pure python implementations of various
 cryptographic algorithms and protocols. Since doing cryptography
 in python is inherently slow, it is meant as a study aid and
