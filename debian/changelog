@@ -1,3 +1,9 @@
+pcr (0.7.1) raring; urgency=low
+
+  * Signed release
+
+ -- Stefano Palazzo <stefano.palazzo@gmail.com>  Fri, 02 Jan 2015 16:55:14 +0100
+
 pcr (0.7.0) raring; urgency=low
 
   * Bug: fixed a bad test (mult_inv)
