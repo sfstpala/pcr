@@ -40,5 +40,6 @@ install:
 endif
 
 clean:
-	rm -rf docs build dist $(shell find hello -name "__pycache__")
+	rm -rf docs build dist $(shell find pcr -name "__pycache__")
 	rm -rf *.egg-info *.egg bin lib lib64 include share pyvenv.cfg
+	rm -rf htmlcov .coverage .tox pip-selfcheck.json
