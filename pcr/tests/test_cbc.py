@@ -32,19 +32,29 @@ class MockCipher:
 class CBCTest(unittest.TestCase):
 
     def test_init(self):
+        MockCipher.block_size = 1
         self.assertRaises(ValueError, CBC, MockCipher, b"")
         self.assertTrue(CBC(MockCipher, b'\0' * 1))
 
     def test_xor(self):
+        MockCipher.block_size = 1
         x = CBC(MockCipher, b'\0' * 1).xor(b"one", b"two")
         self.assertEqual(x, b'\x1b\x19\n')
 
     def test_encrypt(self):
+        MockCipher.block_size = 1
         m = CBC(MockCipher, b'\0')
         e = m.encrypt(b'\1\1\1', b'\2')
         self.assertEqual(e, b'\3\0\3')
+        MockCipher.block_size = 4
+        with self.assertRaises(ValueError):
+            m.encrypt(b'\1\1\1', b'\2')
 
     def test_decrypt(self):
+        MockCipher.block_size = 1
         m = CBC(MockCipher, b'\0')
         e = m.decrypt(b'\3\0\3', b'\2')
         self.assertEqual(e, b'\1\1\1')
+        MockCipher.block_size = 4
+        with self.assertRaises(ValueError):
+            m.decrypt(b'\3\0\3', b'\2')

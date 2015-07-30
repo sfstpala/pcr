@@ -34,6 +34,7 @@ def gcd(a, b):
 class MathsTest(unittest.TestCase):
 
     def test_is_prime(self):
+        self.assertTrue(is_prime(2))
         for i in range(3000 + 1, 4000 + 1):
             self.assertEqual(is_prime(i), is_really_prime(i), i)
 

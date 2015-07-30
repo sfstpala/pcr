@@ -5,13 +5,9 @@ include COPYING
 include Makefile
 include tox.ini
 include .travis.yml
-recursive-include docs *.py
-recursive-include docs *.rst
-include debian
 include debian/changelog
 include debian/compat
 include debian/control
 include debian/copyright
 include debian/rules
-include debian/source
 include debian/source/format

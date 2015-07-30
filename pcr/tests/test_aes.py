@@ -14,6 +14,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import unittest
+import os
 
 from pcr.aes import AES
 
@@ -69,11 +70,20 @@ class AESTest(unittest.TestCase):
 
     def test_decrypt(self):
         a = AES()
-        import os
         for n in [16, 24, 32]:
             for i in range(30):
                 d, k = os.urandom(16), os.urandom(n)
                 self.assertEqual(a.decrypt(a.encrypt(d, k), k), d)
+        d, k = os.urandom(16), os.urandom(33)
+        with self.assertRaises(ValueError):
+            a.encrypt(d, k)
+        with self.assertRaises(ValueError):
+            a.decrypt(d, k)
+
+    def test_rijndael_key_schedule(self):
+        a = AES()
+        with self.assertRaises(ValueError):
+            a.rijndael_key_schedule(os.urandom(33))
 
     def test_encryption(self):
         a = AES()

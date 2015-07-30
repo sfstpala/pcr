@@ -38,4 +38,9 @@ class PKCS7Test(unittest.TestCase):
 
     def test_check_padding(self):
         self.assertEqual(check_padding(b"\0\0\0\0\4\4\4\4", 4), None)
-        self.assertRaises(ValueError, check_padding, b"\0\0\0\0\4\4\3\4", 4)
+        with self.assertRaises(ValueError):
+            check_padding(b"\0\0\0\0\4\4\3\4", 4)
+        with self.assertRaises(ValueError):
+            check_padding(b"\0\0\0\0\4\4\4\5", 4)
+        with self.assertRaises(ValueError):
+            check_padding(b"\0\0\0\0\4\4\4", 4)
