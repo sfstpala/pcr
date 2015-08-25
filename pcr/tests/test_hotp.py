@@ -16,31 +16,52 @@
 import unittest
 import base64
 
-from pcr.hotp import get_token, new_secret
+from pcr.hotp import get_token, verify_token, new_secret
 
 
 class HOTPTest(unittest.TestCase):
 
-    def test_get_token(self):
-        '''
-        HOTP Algorithm Test Values:
-            http://tools.ietf.org/html/rfc4226
+    # HOTP Algorithm Test Values:
+    #     http://tools.ietf.org/html/rfc4226
+    # The secret from appendix d of rfc4226 is converted to base 32
+    # and the first charcter is converted to lowercase:
+    secret = "gEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ"
+    # these are the first 10 matching tokens (c = 0..9):
+    tokens = [
+        "755224",
+        "287082",
+        "359152",
+        "969429",
+        "338314",
+        "254676",
+        "287922",
+        "162583",
+        "399871",
+        "520489",
+    ]
 
-        '''
-        key = "gEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ"
-        # the key is the secret from appendix d of rfc4226
-        # converted to base 32 and with the first charcter
-        # converted to lowercase.
-        self.assertEqual(get_token(key, 0), "755224")
-        self.assertEqual(get_token(key, 1), "287082")
-        self.assertEqual(get_token(key, 2), "359152")
-        self.assertEqual(get_token(key, 3), "969429")
-        self.assertEqual(get_token(key, 4), "338314")
-        self.assertEqual(get_token(key, 5), "254676")
-        self.assertEqual(get_token(key, 6), "287922")
-        self.assertEqual(get_token(key, 7), "162583")
-        self.assertEqual(get_token(key, 8), "399871")
-        self.assertEqual(get_token(key, 9), "520489")
+    def test_get_token(self):
+        self.assertEqual(get_token(self.secret, 0), self.tokens[0])
+        self.assertEqual(get_token(self.secret, 1), self.tokens[1])
+        self.assertEqual(get_token(self.secret, 2), self.tokens[2])
+        self.assertEqual(get_token(self.secret, 3), self.tokens[3])
+        self.assertEqual(get_token(self.secret, 4), self.tokens[4])
+        self.assertEqual(get_token(self.secret, 5), self.tokens[5])
+        self.assertEqual(get_token(self.secret, 6), self.tokens[6])
+        self.assertEqual(get_token(self.secret, 7), self.tokens[7])
+        self.assertEqual(get_token(self.secret, 8), self.tokens[8])
+        self.assertEqual(get_token(self.secret, 9), self.tokens[9])
+
+    def test_verify_token(self):
+        self.assertTrue(verify_token(
+            self.tokens[2], self.secret, 0, window_size=3))
+        self.assertTrue(verify_token(
+            self.tokens[2], self.secret, 1, window_size=3))
+        self.assertTrue(verify_token(
+            self.tokens[2], self.secret, 2, window_size=3))
+        # we're past the window size:
+        self.assertFalse(verify_token(
+            self.tokens[2], self.secret, 3, window_size=3))
 
     def test_new_secret(self):
         # secrets should be unique and 20 characters long (base 32)

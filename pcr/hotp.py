@@ -32,5 +32,12 @@ def get_token(secret, i=None):
                 & 0x7fffffff) % 1000000).rjust(6, "0")
 
 
+def verify_token(token, secret, i=None, window_size=256):
+    for i in range(i, i + window_size if i is not None else 0):
+        if hmac.compare_digest(token, get_token(secret, i)):
+            return True
+    return False
+
+
 def new_secret():
     return base64.b32encode(os.urandom(10))
