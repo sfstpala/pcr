@@ -14,6 +14,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import unittest
+import unittest.mock
 import base64
 
 from pcr.hotp import get_token, verify_token, new_secret
@@ -52,16 +53,20 @@ class HOTPTest(unittest.TestCase):
         self.assertEqual(get_token(self.secret, 8), self.tokens[8])
         self.assertEqual(get_token(self.secret, 9), self.tokens[9])
 
-    def test_verify_token(self):
-        self.assertTrue(verify_token(
-            self.tokens[2], self.secret, 0, window_size=3))
-        self.assertTrue(verify_token(
-            self.tokens[2], self.secret, 1, window_size=3))
-        self.assertTrue(verify_token(
-            self.tokens[2], self.secret, 2, window_size=3))
+    @unittest.mock.patch("time.time")
+    def test_verify_token(self, time):
+        self.assertEqual(verify_token(
+            self.tokens[2], self.secret, 0, window_size=3), 3)
+        self.assertEqual(verify_token(
+            self.tokens[2], self.secret, 1, window_size=3), 2)
+        self.assertEqual(verify_token(
+            self.tokens[2], self.secret, 2, window_size=3), 1)
         # we're past the window size:
-        self.assertFalse(verify_token(
-            self.tokens[2], self.secret, 3, window_size=3))
+        self.assertIs(verify_token(
+            self.tokens[2], self.secret, 3, window_size=3), False)
+        # time based tokens don't have a window size
+        time.return_value = 2 * 30
+        self.assertIs(verify_token(self.tokens[2], self.secret), True)
 
     def test_new_secret(self):
         # secrets should be unique and 20 characters long (base 32)

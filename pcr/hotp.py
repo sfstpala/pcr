@@ -33,9 +33,13 @@ def get_token(secret, i=None):
 
 
 def verify_token(token, secret, i=None, window_size=256):
-    for i in range(i, i + window_size if i is not None else 0):
+    if i is None:
+        return hmac.compare_digest(token, get_token(secret))
+    n = 0
+    for i in range(i, i + window_size):
+        n += 1
         if hmac.compare_digest(token, get_token(secret, i)):
-            return True
+            return n
     return False
 
 
