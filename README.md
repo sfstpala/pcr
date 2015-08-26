@@ -2,7 +2,7 @@
 
 [![Build](https://img.shields.io/travis/sfstpala/pcr.svg?style=flat-square)](https://travis-ci.org/sfstpala/pcr)
 [![Coverage](https://img.shields.io/coveralls/sfstpala/pcr.svg?style=flat-square)](https://coveralls.io/r/sfstpala/pcr)
-[![PyPI](https://img.shields.io/pypi/pcr.svg?style=flat-square)](https://pypi.python.org/pypi/pcr)
+[![PyPI](https://img.shields.io/pypi/v/pcr.svg?style=flat-square)](https://pypi.python.org/pypi/pcr)
 ![Audited](https://img.shields.io/badge/audited-no-red.svg?style=flat-square)
 
  - [Downloads](https://pypi.python.org/pypi/pcr/)
