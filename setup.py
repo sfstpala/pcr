@@ -7,7 +7,7 @@ with open(os.path.join(here, "DESCRIPTION.rst")) as f:
 
 setuptools.setup(
     name="pcr",
-    version="0.7.3",
+    version="0.8.0",
     license="GPLv3",
     packages=setuptools.find_packages(),
     test_suite="pcr.tests",
