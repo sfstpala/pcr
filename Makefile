@@ -32,6 +32,9 @@ bin/pdoc: bin/pip
 bin/pygmentize: bin/pip
 	bin/pip install pygments
 
+doctest: all
+	bin/python -m doctest README.md
+
 ifdef DEB_HOST_ARCH
 DESTDIR ?= /
 PREFIX ?= usr/
