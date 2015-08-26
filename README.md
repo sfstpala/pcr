@@ -44,8 +44,39 @@ The easiest way to install PCR is using PIP:
 
     sudo pip3 install pcr
 
-You can also build the Debian package by running
-`debuild -b -tc -us -uc` in the source tree.
+## Hacking
+
+If you have cloned this repository, you can buld pcr in a virtualenv
+and run the test suite like this:
+
+    make test
+
+### Development
+
+PCR comes with a makefile that builds a virtualenv in your working directory.
+Assuming you have `make`, `curl`, and `python3`, you can run the test suite
+by typing
+
+    make test doctests
+
+And you can build wheels by typing
+
+    make wheels
+
+The process for making a release is as follows:
+
+    make test doctest docs
+
+If everything checks out, update the version number in `setup.py` and
+make a release commit:
+
+    git commit -am "Release <version-number>"
+    git push origin master
+
+Finally upload the distribution to pypi
+
+    bin/python setup.py bdist_wheel sdist upload
+    bin/python setup.py upload_docs --upload-dir=docs/pcr
 
 ## Examples
 

@@ -26,5 +26,4 @@ Furthermore, all code must pass pep8 without exception.
 All code in PCR is licensed under the terms of the GNU
 General Public License (version 3 or later). You may add
 your name at the top of the file when you change it (do
-however follow the style used in the file). Please also
-edit `debian/copyright` in the same way.
+however follow the style used in the file).

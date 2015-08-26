@@ -14,13 +14,4 @@ __pycache__/
 /build/
 /share/
 /docs/
-*.dsc
-*.tar.gz
-*.tar.xz
-*.build
-*.changes
-*.deb
-debian/files
-debian/python3-hello.debhelper.log
-debian/python3-hello.substvars
-debian/python3-hello/
+/wheelhouse/

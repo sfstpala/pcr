@@ -35,14 +35,10 @@ bin/pygmentize: bin/pip
 doctest: all
 	bin/python -m doctest README.md
 
-ifdef DEB_HOST_ARCH
-DESTDIR ?= /
-PREFIX ?= usr/
-install:
-	$(python) setup.py install --no-compile --prefix="$(PREFIX)" --root="$(DESTDIR)" --install-layout=deb
-endif
+wheels: bin/wheel all
+	bin/pip wheel .
 
 clean:
 	rm -rf docs build dist $(shell find pcr -name "__pycache__")
 	rm -rf *.egg-info *.egg bin lib lib64 include share pyvenv.cfg
-	rm -rf htmlcov .coverage .tox pip-selfcheck.json
+	rm -rf wheelhouse htmlcov .coverage .tox pip-selfcheck.json
