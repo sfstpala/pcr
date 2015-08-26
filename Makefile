@@ -11,19 +11,21 @@ bin/wheel: bin/pip
 bin/python:
 	$(python) -m venv --without-pip .
 
-test: all bin/coverage bin/flake8 bin/check-manifest
+test: all bin/coverage bin/flake8 bin/check-manifest bin/rst2xml.py
 	bin/coverage run setup.py test
 	bin/coverage html
 	bin/coverage report
 	bin/flake8 setup.py pcr
 	bin/check-manifest
-	bin/python setup.py check
+	bin/python setup.py check -mrs
 bin/coverage: bin/pip
 	bin/pip install coverage
 bin/flake8: bin/pip
 	bin/pip install flake8
 bin/check-manifest: bin/pip
 	bin/pip install check-manifest
+bin/rst2xml.py: bin/pip
+	bin/pip install docutils
 
 docs: all bin/pdoc bin/pygmentize setup.py
 	bin/pdoc --html --only-pypath --html-dir ./docs --overwrite pcr pcr

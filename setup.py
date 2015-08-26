@@ -1,5 +1,9 @@
+import os.path
 import setuptools
 
+here = os.path.abspath(os.path.dirname(__file__))
+with open(os.path.join(here, "DESCRIPTION.rst")) as f:
+    long_description = f.read()
 
 setuptools.setup(
     name="pcr",
@@ -9,11 +13,7 @@ setuptools.setup(
     test_suite="pcr.tests",
     install_requires=[],
     description="Python 3 Cryptography Toolkit",
-    long_description=(
-        "A cryptography toolkit implemented in pure python 3. PCR includes "
-        "AES, CBC (mode of operation), Diffie-Hellman, HOPT (two-factor-"
-        "authentication), pbkdf2 (key derivation), RC4, and XTEA, as well "
-        "as some ancillary modules."),
+    long_description=long_description,
     platforms="all",
     author="Stefano Palazzo",
     author_email="stefano.palazzo@gmail.com",
@@ -22,5 +22,6 @@ setuptools.setup(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: " +
         "GNU General Public License v3 or later (GPLv3+)",
-        "Topic :: Security :: Cryptography"],
+        "Topic :: Security :: Cryptography",
+    ],
 )

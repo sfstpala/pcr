@@ -1,5 +1,6 @@
 include README.md
 include CONTRIBUTING.md
+include DESCRIPTION.rst
 include .coveragerc
 include COPYING
 include Makefile

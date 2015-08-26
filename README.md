@@ -5,12 +5,12 @@
 [![PyPI](https://img.shields.io/pypi/v/pcr.svg?style=flat-square)](https://pypi.python.org/pypi/pcr)
 ![Audited](https://img.shields.io/badge/audited-no-red.svg?style=flat-square)
 
- - [Downloads](https://pypi.python.org/pypi/pcr/)
- - [Documentation](https://pythonhosted.org/pcr/)
+ - [**Downloads**](https://pypi.python.org/pypi/pcr/)
+ - [**API Reference**](https://pythonhosted.org/pcr/)
 
 This package provides pure python implementations of various
 cryptographic algorithms and protocols. Since doing cryptography
-in python is inherently slow, it is meant as a study aid and
+in Python is inherently slow, it is meant as a study aid and
 experimentation kit.
 
 ## Before you use PCR
