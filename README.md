@@ -2,6 +2,8 @@
 
 [![Build](https://img.shields.io/travis/sfstpala/pcr.svg?style=flat-square)](https://travis-ci.org/sfstpala/pcr)
 [![Coverage](https://img.shields.io/coveralls/sfstpala/pcr.svg?style=flat-square)](https://coveralls.io/r/sfstpala/pcr)
+[![PyPI](https://img.shields.io/pypi/pcr.svg?style=flat-square)](https://pypi.python.org/pypi/pcr)
+![Audited](https://img.shields.io/badge/audited-no-red.svg?style=flat-square)
 
  - [Downloads](https://pypi.python.org/pypi/pcr/)
  - [Documentation](https://pythonhosted.org/pcr/)
@@ -10,6 +12,16 @@ This package provides pure python implementations of various
 cryptographic algorithms and protocols. Since doing cryptography
 in python is inherently slow, it is meant as a study aid and
 experimentation kit.
+
+## Before you use PCR
+
+You should know:
+
+  - AES encryption in PCR is *slow*
+  - PCR has not been independently audited
+  - Using a cryptographic library securely is difficult
+
+Make sure you read and understand this document before using PCR.
 
 Currently, PCR provides the following:
 
