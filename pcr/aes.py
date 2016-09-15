@@ -554,7 +554,9 @@ class AES(object):
                 m = [14, 9, 13, 11]
 
             c = bytearray(i for i in column)
-            g = lambda a, b: self.galois_multiplication[b][a]
+
+            def g(a, b):
+                return self.galois_multiplication[b][a]
 
             column[0] = (g(c[0], m[0]) ^ g(c[3], m[1]) ^
                          g(c[2], m[2]) ^ g(c[1], m[3]))
