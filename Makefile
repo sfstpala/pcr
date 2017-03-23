@@ -53,7 +53,7 @@ doctest: all
 	bin/python -m doctest README.md
 
 wheels: bin/wheel all
-	bin/pip wheel .
+	bin/pip wheel -w wheelhouse .
 
 clean:
 	rm -rf docs build dist $(shell find pcr -name "__pycache__")
