@@ -1,8 +1,6 @@
 [run]
 branch = True
-source =
-    pcr
-    setup.py
+source = pcr
 
 [report]
 show_missing = True

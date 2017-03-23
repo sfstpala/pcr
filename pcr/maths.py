@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-''' Various mathematical function used in public key cryptography '''
+"""Various mathematical function used in public key cryptography."""
 
 import os
 import random
@@ -21,11 +21,23 @@ import random
 random = random.SystemRandom()
 
 
+def check_candidate(a, d, n, s):
+    """Part of the Miller-Rabin primality test in is_prime()."""
+    if pow(a, d, n) == 1:
+        return False
+    for i in range(s):
+        if pow(a, 2 ** i * d, n) == n - 1:
+            return False
+    return True
+
+
 def is_prime(n, k=64):
-    '''
-    Test whether n is prime using the probabilistic Miller-Rabin
-    primality test. If n is composite, then this test will declare
-    it to be probably prime with a probability of at most 4**-k.
+    """
+    Test whether n is prime probabilisticly.
+
+    This uses the Miller-Rabin primality test. If n is composite,
+    then this test will declare it to be probably prime with a
+    probability of at most 4**-k.
 
     To be on the safe side, a value of k=64 for integers up to
     3072 bits is recommended (error probability = 2**-128). If
@@ -36,14 +48,7 @@ def is_prime(n, k=64):
 
     Do not use this function for small numbers.
 
-    '''
-    def check_candidate(a):
-        if pow(a, d, n) == 1:
-            return False
-        for i in range(s):
-            if pow(a, 2 ** i * d, n) == n - 1:
-                return False
-        return True
+    """
     if n == 2:
         return True
     if n < 2 or n % 2 == 0:
@@ -61,18 +66,18 @@ def is_prime(n, k=64):
         d = q
     for i in range(k):
         a = random.randint(2, n - 1)
-        if check_candidate(a):
+        if check_candidate(a, d, n, s):
             return False
     return True
 
 
 def get_prime(bits, k=64):
-    '''
-    Return a random prime up to a certain length
+    """
+    Return a random prime up to a certain length.
 
     This function uses random.SystemRandom.
 
-    '''
+    """
     if bits % 8 != 0 or bits == 0:
         raise ValueError("bits must be >= 0 and divisible by 8")
     while True:
@@ -82,22 +87,22 @@ def get_prime(bits, k=64):
 
 
 def phi(n, p, q):
-    '''
-    Euler's totient function for n which can be written as pq
+    """
+    Php, or Euler's totient function, for n which can be written as pq.
 
     This is the number of k in the range 0 <= k <= n where
     gcd(n, k) is = 1 or, in other words, the number of integers
     k <= n that are relatively prime to n.
-    '''
+    """
     return (n + 1) - (p + q)
 
 
 def mult_inv(a, b):
-    '''
-    Calculate the multiplicative inverse a**-1 % b
+    """
+    Calculate the multiplicative inverse a**-1 % b.
 
     This function works for n >= 5 where n is prime.
-    '''
+    """
     # in addition to the normal setup, we also remember b
     last_b, x, last_x, y, last_y = b, 0, 1, 1, 0
     while b != 0:
@@ -112,15 +117,15 @@ def mult_inv(a, b):
 
 
 def make_rsa_keys(bits=2048, e=65537, k=64):
-    '''
-    Create RSA key pair
+    """
+    Create RSA key pair.
 
     Returns n, e, d, where (n, e) is the public
     key and (n, e, d) is the private key (and k is
     the number of rounds used in the Miller-Rabin
     primality test).
 
-    '''
+    """
     p, q = None, None
     while p == q:
         p, q = get_prime(bits // 2), get_prime(bits // 2)

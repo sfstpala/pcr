@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-''' Time OTP implementation for 2-factor authentication '''
+"""Time OTP implementation for 2-factor authentication."""
 
 
 import hmac

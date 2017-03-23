@@ -26,17 +26,17 @@ bin/wheel: bin/pip
 bin/python:
 	$(python) -m venv --without-pip .
 
-test: all bin/coverage bin/flake8 bin/check-manifest bin/rst2xml.py
+test: all bin/coverage bin/pylama bin/check-manifest bin/rst2xml.py
 	bin/coverage run setup.py test
 	bin/coverage html
 	bin/coverage report
-	bin/flake8 setup.py pcr
+	bin/pylama setup.py pcr
 	bin/check-manifest
 	bin/python setup.py check -mrs
 bin/coverage: bin/pip
 	bin/pip install coverage
-bin/flake8: bin/pip
-	bin/pip install flake8
+bin/pylama: bin/pip
+	bin/pip install pylama
 bin/check-manifest: bin/pip
 	bin/pip install check-manifest
 bin/rst2xml.py: bin/pip

@@ -13,16 +13,17 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-''' Password based key-derivation function - PBKDF2 '''
+"""Password based key-derivation function - PBKDF2."""
 
 import hmac
 import struct
 
 
 def pbkdf2(digestmod, password, salt, count, dk_length):
-    '''
-    PBKDF2, from PKCS #5 v2.0:
-        http://tools.ietf.org/html/rfc2898
+    """
+    PBKDF2, from PKCS #5 v2.0[1].
+
+    [1]: http://tools.ietf.org/html/rfc2898
 
     For proper usage, see NIST Special Publication 800-132:
         http://csrc.nist.gov/publications/PubsSPs.html
@@ -57,7 +58,8 @@ def pbkdf2(digestmod, password, salt, count, dk_length):
             it makes sense to use a larger digest hash function if your
             key size is large.
 
-    '''
+
+    """
     def pbkdf2_function(pw, salt, count, i):
         # in the first iteration, the hmac message is the salt
         # concatinated with the block number in the form of \x00\x00\x00\x01

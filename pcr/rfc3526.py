@@ -13,8 +13,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-'''
-Groups for Diffie-Hellman as defined by RFC 3526
+"""
+Groups for Diffie-Hellman as defined by RFC 3526.
 
 To get access to the 2048 bit group, for example, type:
 
@@ -22,7 +22,7 @@ To get access to the 2048 bit group, for example, type:
 
 See http://tools.ietf.org/html/rfc3526 for notes on usage.
 
-'''
+"""
 
 _g1536 = int("""
 FFFFFFFF FFFFFFFF C90FDAA2 2168C234 C4C6628B 80DC1CD1

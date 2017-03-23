@@ -22,11 +22,12 @@ from pcr.rc4 import key_schedule, key_stream
 class RC4Test(unittest.TestCase):
 
     def test_key_schedule_256(self):
-        '''
-        RC4 Test Vectors (256 bit key):
-            http://tools.ietf.org/html/rfc6229
+        """
+        RC4 Test Vectors (256 bit key)[1].
 
-        '''
+        [1]: http://tools.ietf.org/html/rfc6229
+
+        """
         key = (b'\x1a\xda1\xd5\xcfh\x82!\xc1\t\x169\x08\xeb' +
                b'\xe5\x1d\xeb\xb4b\'\xc6\xcc\x8b7d\x19\x10\x832"w*')
         cip = bytes(n for n, _ in zip(key_stream(

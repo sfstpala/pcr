@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-''' Advanced Encryption Standard - Block Cipher '''
+"""Advanced Encryption Standard - Block Cipher."""
 
 
 class AES(object):
@@ -108,12 +108,12 @@ class AES(object):
 
     @staticmethod
     def xor(a, b):
-        ''' bitwise xor on equal length bytearrays '''
+        """Bitwise xor on equal length bytearrays."""
         return bytearray(i ^ j for i, j in zip(a, b))
 
     @staticmethod
     def rotate(word):
-        ''' rotate a sequence of bytes eight bits to the left '''
+        """Rotate a sequence of bytes eight bits to the left."""
         return word[1:] + word[:1]
 
     def rijndael_key_schedule(self, key):

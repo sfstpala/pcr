@@ -18,5 +18,5 @@ import pkg_resources
 
 try:
     __version__ = pkg_resources.get_distribution(__package__).version
-except:  # pragma: no cover
+except Exception:  # pragma: no cover
     __version__ = '<unknown>'

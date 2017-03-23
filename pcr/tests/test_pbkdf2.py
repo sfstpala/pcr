@@ -22,11 +22,12 @@ from pcr.pbkdf2 import pbkdf2
 class PBKDF2Test(unittest.TestCase):
 
     def test_pbkdf2(self):
-        '''
-        PBKDF2 HMAC-SHA1 Test Vectors:
-            http://tools.ietf.org/html/rfc6070
+        """
+        PBKDF2 HMAC-SHA1 Test Vectors[1].
 
-        '''
+        [1]: http://tools.ietf.org/html/rfc6070
+
+        """
         # One of the test vectors has been removed because it takes
         # too long to calculate. This was a test vector of 2^24 iterations.
         # Since there is no difference between integers and long integers

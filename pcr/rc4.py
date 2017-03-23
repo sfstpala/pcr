@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-''' RC4 stream cipher '''
+"""RC4 stream cipher."""
 
 
 def key_schedule(key):

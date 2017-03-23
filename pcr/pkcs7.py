@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-''' PKCS7 Padding for Block Cipher Modes '''
+"""PKCS7 Padding for Block Cipher Modes."""
 
 
 def pad(data, block_size):
